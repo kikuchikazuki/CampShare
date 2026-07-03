@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      th:replace="layout :: layout(~{::content})">
+
+<div th:fragment="content">
+
+    <h2 class="mb-4">
+        キャンプ用品一覧
+    </h2>
+
+    <table class="table table-striped table-hover align-middle">
+
+        <thead class="table-success">
+
+        <tr>
+            <th>ID</th>
+            <th>商品名</th>
+            <th>カテゴリ</th>
+            <th>説明</th>
+            <th>在庫</th>
+        </tr>
+
+        </thead>
+
+        <tbody>
+
+        <tr th:each="gear : ${gears}">
+
+            <td th:text="${gear.id}"></td>
+
+            <td th:text="${gear.name}"></td>
+
+            <td th:text="${gear.category}"></td>
+
+            <td th:text="${gear.description}"></td>
+
+            <td>
+                <span class="badge bg-success"
+                      th:text="${gear.stock}">
+                </span>
+            </td>
+
+        </tr>
+
+        </tbody>
+
+    </table>
+
+</div>
+
+</html>
