@@ -16,6 +16,7 @@
     </div>
     <div th:if="${email != null}">
         <p th:text="${email} + ' さん、ログイン中です。'"></p>
+        <p><a th:href="@{/mypage/rentals}">予約履歴を見る</a></p>
         <form th:action="@{/logout}" method="post">
             <button type="submit">ログアウト</button>
         </form>

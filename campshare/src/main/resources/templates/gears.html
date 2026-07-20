@@ -1,3 +1,32 @@
 <!DOCTYPE html>
-<html lang="ja" xmlns:th="http://www.thymeleaf.org"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"><title>用品一覧 | CampShare</title></head>
-<body class="bg-light"><main class="container py-5"><a class="text-decoration-none" th:href="@{/}">← CampShareへ戻る</a><h1 class="mt-3 mb-4">キャンプ用品一覧</h1><div class="row g-4"><div class="col-md-6 col-lg-4" th:each="gear : ${gears}"><article class="card h-100 shadow-sm"><img class="card-img-top" style="height:220px;object-fit:cover" th:src="${gear.imageUrl}" th:alt="${gear.name}"><div class="card-body d-flex flex-column"><span class="badge text-bg-success align-self-start" th:text="${gear.category}"></span><h2 class="h5 mt-2" th:text="${gear.name}"></h2><p class="text-muted" th:text="${gear.description}"></p><div class="mt-auto"><strong th:text="|¥${gear.dailyPrice}/日|"></strong><span class="float-end" th:text="|在庫 ${gear.stockCount}|"></span></div></div></article></div></div></main></body></html>
+<html lang="ja" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <title>用品一覧 | CampShare</title>
+</head>
+<body class="bg-light">
+<main class="container py-5">
+    <a class="text-decoration-none" th:href="@{/}">← CampShareトップへ戻る</a>
+    <h1 class="mt-3 mb-4">キャンプ用品一覧</h1>
+    <div class="row g-4">
+        <div class="col-md-6 col-lg-4" th:each="gear : ${gears}">
+            <article class="card h-100 shadow-sm">
+                <img class="card-img-top" style="height:220px;object-fit:cover" th:src="${gear.imageUrl}" th:alt="${gear.name}">
+                <div class="card-body d-flex flex-column">
+                    <span class="badge text-bg-success align-self-start" th:text="${gear.category}">カテゴリ</span>
+                    <h2 class="h5 mt-2" th:text="${gear.name}">用品名</h2>
+                    <p class="text-muted" th:text="${gear.description}">説明</p>
+                    <div class="mt-auto">
+                        <strong th:text="|¥${gear.dailyPrice}/日|">¥0/日</strong>
+                        <span class="float-end" th:text="|在庫 ${gear.stockCount}|">在庫 0</span>
+                    </div>
+                    <a class="btn btn-outline-success w-100 mt-3" th:href="@{/gears/{id}(id=${gear.id})}">詳細・予約へ</a>
+                </div>
+            </article>
+        </div>
+    </div>
+</main>
+</body>
+</html>

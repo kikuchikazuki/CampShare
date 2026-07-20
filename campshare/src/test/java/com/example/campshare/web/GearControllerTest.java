@@ -8,6 +8,7 @@ import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.test.context.bean.override.mockito.MockitoBean;
 import org.springframework.test.web.servlet.MockMvc;
 import java.util.List;
+import java.util.Optional;
 import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
@@ -20,5 +21,10 @@ class GearControllerTest {
  @Test void gearListReturnsGearsView() throws Exception {
   when(gearRepository.findAllByOrderByIdAsc()).thenReturn(List.of());
   mockMvc.perform(get("/gears")).andExpect(status().isOk()).andExpect(view().name("gears")).andExpect(model().attributeExists("gears"));
+ }
+
+ @Test void gearDetailReturnsDetailView() throws Exception {
+  when(gearRepository.findById(1L)).thenReturn(Optional.of(org.mockito.Mockito.mock(com.example.campshare.gear.Gear.class)));
+  mockMvc.perform(get("/gears/1")).andExpect(status().isOk()).andExpect(view().name("gear-detail")).andExpect(model().attributeExists("gear"));
  }
 }

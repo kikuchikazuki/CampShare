@@ -14,10 +14,15 @@ public class Gear {
     @Column(name = "stock_count") private Integer stockCount;
     @Column(name = "image_url") private String imageUrl;
     protected Gear() { }
+    public Long getId() { return id; }
     public String getName() { return name; }
     public String getCategory() { return category; }
     public String getDescription() { return description; }
     public Integer getDailyPrice() { return dailyPrice; }
     public Integer getStockCount() { return stockCount; }
     public String getImageUrl() { return imageUrl; }
+
+    public void decreaseStock() {
+        stockCount--;
+    }
 }
