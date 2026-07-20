@@ -45,6 +45,10 @@ public class User {
         return passwordHash;
     }
 
+    public String getEmail() {
+        return email;
+    }
+
     public Role getRole() {
         return role;
     }

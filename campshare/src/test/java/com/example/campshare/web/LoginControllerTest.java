@@ -10,17 +10,17 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.view;
 
-@WebMvcTest(HomeController.class)
+@WebMvcTest(LoginController.class)
 @AutoConfigureMockMvc(addFilters = false)
-class HomeControllerTest {
+class LoginControllerTest {
 
     @Autowired
     private MockMvc mockMvc;
 
     @Test
-    void topPageReturnsHomeView() throws Exception {
-        mockMvc.perform(get("/"))
+    void loginPageReturnsLoginView() throws Exception {
+        mockMvc.perform(get("/login"))
                 .andExpect(status().isOk())
-                .andExpect(view().name("home"));
+                .andExpect(view().name("login"));
     }
 }

@@ -9,6 +9,16 @@
 <main>
     <h1>CampShare</h1>
     <p>キャンプ用品を、もっと手軽に。</p>
+    <div th:if="${email == null}">
+        <a th:href="@{/login}">ログイン</a>
+        <a th:href="@{/signup}">新規登録</a>
+    </div>
+    <div th:if="${email != null}">
+        <p th:text="${email} + ' さん、ログイン中です。'"></p>
+        <form th:action="@{/logout}" method="post">
+            <button type="submit">ログアウト</button>
+        </form>
+    </div>
 </main>
 </body>
 </html>
