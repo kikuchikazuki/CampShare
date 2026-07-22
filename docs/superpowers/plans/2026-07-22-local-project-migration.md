@@ -40,7 +40,7 @@ application-local.properties
 
 - [ ] **Step 3: Verify the staged metadata diff.**
 
-Run: `git diff --check`  
+Run: `git diff --check`
 Expected: no output and exit code 0.
 
 - [ ] **Step 4: Commit the metadata baseline.**
@@ -78,7 +78,7 @@ src/main/resources/templates/layout.html
 
 - [ ] **Step 4: Verify no local database file was added.**
 
-Run: `git status --short`  
+Run: `git status --short`
 Expected: no `application-local.properties`, `.idea/`, `target/`, `.maven-cache/`, `.superpowers/`, or `.worktrees/` paths.
 
 - [ ] **Step 5: Commit the production migration.**
