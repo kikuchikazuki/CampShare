@@ -6,7 +6,11 @@ CampShare is a Java 17 Spring Boot application. Production code lives in `src/ma
 
 ## Build, Test, and Development Commands
 
-Use the checked-in Maven Wrapper from the project root:
+Use the checked-in Maven Wrapper from the project root. In PowerShell, first set a project-local Maven cache:
+
+`$env:MAVEN_USER_HOME="$PWD\.maven-cache"`
+
+Then run:
 
 - `.\mvnw.cmd test` runs the complete test suite.
 - `.\mvnw.cmd clean package` rebuilds and creates the executable JAR in `target/`.
