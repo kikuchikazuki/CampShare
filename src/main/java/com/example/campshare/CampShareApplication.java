@@ -4,10 +4,9 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class CampShareApplication {
+public class CampshareApplication {
 
   public static void main(String[] args) {
-    SpringApplication.run(CampShareApplication.class, args);
+    SpringApplication.run(CampshareApplication.class, args);
   }
-
 }
