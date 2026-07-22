@@ -2,7 +2,7 @@
 
 ## Project Structure & Module Organization
 
-CampShare is a Java 17 Spring Boot application. Production code lives in `src/main/java/com/example/campshare`, organized by feature (`gear`, `rental`, `user`, `admin`, `dashboard`) with MVC controllers in `web` and shared configuration in `config`. Thymeleaf views are in `src/main/resources/templates`; static assets belong in `src/main/resources/static`. Database changes use Flyway scripts in `src/main/resources/db/migration`. Tests mirror the production packages under `src/test/java/com/example/campshare`.
+CampShare is a Java 17 Spring Boot application. Production code lives in `src/main/java/com/example/campshare`, organized by feature (`gear`, `rental`, `user`, `admin`, `dashboard`) with MVC controllers in `web` and shared configuration in `config`. Thymeleaf views are in `src/main/resources/templates`. Database changes use Flyway scripts in `src/main/resources/db/migration`. Tests mirror the production packages under `src/test/java/com/example/campshare`.
 
 ## Build, Test, and Development Commands
 
