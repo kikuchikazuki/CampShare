@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ja" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CampShare</title>
+</head>
+<body>
+<main>
+    <h1>CampShare</h1>
+    <p>キャンプ用品を、もっと手軽に。</p>
+    <p><a th:href="@{/gears}">用品一覧を見る</a></p>
+    <div th:if="${email == null}">
+        <a th:href="@{/login}">ログイン</a>
+        <a th:href="@{/signup}">新規登録</a>
+    </div>
+    <div th:if="${email != null}">
+        <p th:text="${email} + ' さん、ログイン中です。'"></p>
+        <p><a th:href="@{/mypage/rentals}">予約履歴を見る</a></p>
+        <p th:if="${admin}"><a th:href="@{/admin/gears}">商品管理</a></p>
+        <form th:action="@{/logout}" method="post">
+            <button type="submit">ログアウト</button>
+        </form>
+    </div>
+</main>
+</body>
+</html>
