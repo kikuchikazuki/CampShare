@@ -4,23 +4,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ログイン | CampShare</title>
+    <link rel="stylesheet" th:href="@{/css/auth.css}">
 </head>
-<body>
-<main>
-    <h1>CampShare ログイン</h1>
-    <p th:if="${param.error}">メールアドレスまたはパスワードが正しくありません。</p>
-    <form th:action="@{/login}" method="post">
-        <div>
+<body class="auth-page">
+<main class="auth-card">
+    <p class="auth-brand">CampShare</p>
+    <h1>ログイン</h1>
+    <p class="auth-alert" th:if="${param.error}">メールアドレスまたはパスワードが正しくありません。</p>
+    <form class="auth-form" th:action="@{/login}" method="post">
+        <div class="auth-field">
             <label for="email">メールアドレス</label>
-            <input id="email" name="email" type="email" required>
+            <input class="auth-input" id="email" name="email" type="email" required>
         </div>
-        <div>
+        <div class="auth-field">
             <label for="password">パスワード</label>
-            <input id="password" name="password" type="password" required>
+            <input class="auth-input" id="password" name="password" type="password" required>
         </div>
-        <button type="submit">ログイン</button>
+        <button class="auth-submit" type="submit">ログイン</button>
     </form>
-    <p><a th:href="@{/signup}">新規登録はこちら</a></p>
+    <p class="auth-link">アカウントをお持ちでない方は <a th:href="@{/signup}">新規登録</a></p>
 </main>
 </body>
 </html>
