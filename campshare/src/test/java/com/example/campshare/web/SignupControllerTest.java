@@ -9,11 +9,13 @@ import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.test.context.bean.override.mockito.MockitoBean;
 import org.springframework.test.web.servlet.MockMvc;
 
+import static org.hamcrest.Matchers.containsString;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.doThrow;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.model;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.redirectedUrl;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.view;
@@ -33,6 +35,15 @@ class SignupControllerTest {
                 .andExpect(status().isOk())
                 .andExpect(view().name("signup"))
                 .andExpect(model().attributeExists("signupForm"));
+    }
+
+    @Test
+    void signupPageUsesSharedStylesheetAndShowsLoginMessageAfterRegistration() throws Exception {
+        mockMvc.perform(get("/signup").param("registered", "true"))
+                .andExpect(status().isOk())
+                .andExpect(view().name("signup"))
+                .andExpect(content().string(containsString("/css/auth.css")))
+                .andExpect(content().string(containsString("登録が完了しました。ログインしてください。")));
     }
 
     @Test

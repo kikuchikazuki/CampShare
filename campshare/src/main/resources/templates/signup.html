@@ -4,30 +4,33 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>新規登録 | CampShare</title>
+    <link rel="stylesheet" th:href="@{/css/auth.css}">
 </head>
-<body>
-<main>
-    <h1>CampShare 新規登録</h1>
-    <p th:if="${registered}">登録が完了しました。ログイン機能は次のステップで追加します。</p>
+<body class="auth-page">
+<main class="auth-card">
+    <p class="auth-brand">CampShare</p>
+    <h1>新規登録</h1>
+    <p class="auth-alert" th:if="${registered}">登録が完了しました。ログインしてください。</p>
 
-    <form th:action="@{/signup}" th:object="${signupForm}" method="post">
-        <div>
+    <form class="auth-form" th:action="@{/signup}" th:object="${signupForm}" method="post">
+        <div class="auth-field">
             <label for="displayName">表示名</label>
-            <input id="displayName" type="text" th:field="*{displayName}">
-            <p th:errors="*{displayName}"></p>
+            <input class="auth-input" id="displayName" type="text" th:field="*{displayName}">
+            <p class="auth-error" th:errors="*{displayName}"></p>
         </div>
-        <div>
+        <div class="auth-field">
             <label for="email">メールアドレス</label>
-            <input id="email" type="email" th:field="*{email}">
-            <p th:errors="*{email}"></p>
+            <input class="auth-input" id="email" type="email" th:field="*{email}">
+            <p class="auth-error" th:errors="*{email}"></p>
         </div>
-        <div>
+        <div class="auth-field">
             <label for="password">パスワード</label>
-            <input id="password" type="password" th:field="*{password}">
-            <p th:errors="*{password}"></p>
+            <input class="auth-input" id="password" type="password" th:field="*{password}">
+            <p class="auth-error" th:errors="*{password}"></p>
         </div>
-        <button type="submit">登録する</button>
+        <button class="auth-submit" type="submit">登録する</button>
     </form>
+    <p class="auth-link">すでにアカウントをお持ちの方は <a th:href="@{/login}">ログイン</a></p>
 </main>
 </body>
 </html>
