@@ -5,9 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <title>予約履歴 | CampShare</title>
+    <link rel="stylesheet" th:href="@{/css/site.css}">
 </head>
-<body class="bg-light">
-<main class="container py-5">
+<body class="site-page">
+<main class="site-container">
     <a class="text-decoration-none" th:href="@{/}">← CampShareトップへ戻る</a>
     <h1 class="mt-3 mb-4">予約履歴</h1>
     <div class="alert alert-success" th:if="${param.reserved}">予約が完了しました！</div>
