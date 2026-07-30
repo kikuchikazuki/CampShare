@@ -8,6 +8,7 @@
     <link rel="stylesheet" th:href="@{/css/site.css}">
 </head>
 <body class="site-page">
+<div th:replace="~{fragments/site-header :: siteHeader}"></div>
 <main class="site-container">
     <a class="text-decoration-none" th:href="@{/gears}">← 用品一覧へ戻る</a>
     <article class="card shadow-sm mt-3 overflow-hidden">

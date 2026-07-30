@@ -8,8 +8,8 @@
     <link rel="stylesheet" th:href="@{/css/site.css}">
 </head>
 <body class="site-page">
+<div th:replace="~{fragments/site-header :: siteHeader}"></div>
 <main class="site-container">
-    <a class="text-decoration-none" th:href="@{/}">← CampShareトップへ戻る</a>
     <h1 class="mt-3 mb-4">キャンプ用品一覧</h1>
     <div class="row g-4">
         <div class="col-md-6 col-lg-4" th:each="gear : ${gears}">

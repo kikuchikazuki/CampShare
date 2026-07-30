@@ -8,7 +8,8 @@
     <link rel="stylesheet" th:href="@{/css/site.css}">
 </head>
 <body class="site-page">
-<main class="container py-5" style="max-width: 720px">
+<div th:replace="~{fragments/site-header :: siteHeader}"></div>
+<main class="site-container" style="max-width: 720px">
     <a class="text-decoration-none" th:href="@{/gears/{id}(id=${gear.id})}">← 商品詳細へ戻る</a>
     <section class="card shadow-sm mt-3"><div class="card-body p-4">
         <h1 class="h3">予約する</h1>

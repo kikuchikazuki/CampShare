@@ -1,1 +1,117 @@
-:root{--forest:#31533B;--canvas:#F8F3E8;--surface:#FFFDF8;--accent:#E98B45;--text:#26372A}body.site-page{margin:0;min-height:100vh;background:var(--canvas);color:var(--text);font-family:system-ui,sans-serif}.site-container{width:min(1120px,calc(100% - 32px));margin:auto;padding:32px 0}.card{border:0;border-radius:16px;box-shadow:0 10px 24px rgb(38 55 42 / 12%)}.btn-success{background:var(--accent)!important;border-color:var(--accent)!important}.form-control:focus{border-color:var(--forest);box-shadow:0 0 0 3px rgb(88 116 90 / 35%)}@media(max-width:768px){.site-container{width:min(100% - 24px,1120px);padding:20px 0}}
+:root {
+    --forest: #31533B;
+    --canvas: #F8F3E8;
+    --surface: #FFFDF8;
+    --accent: #E98B45;
+    --text: #26372A;
+}
+
+body.site-page {
+    margin: 0;
+    min-height: 100vh;
+    background: var(--canvas);
+    color: var(--text);
+    font-family: system-ui, sans-serif;
+}
+
+.site-container {
+    width: min(1120px, calc(100% - 32px));
+    margin: auto;
+    padding: 32px 0;
+}
+
+.card {
+    border: 0;
+    border-radius: 16px;
+    box-shadow: 0 10px 24px rgb(38 55 42 / 12%);
+}
+
+.btn-success {
+    background: var(--accent) !important;
+    border-color: var(--accent) !important;
+}
+
+.form-control:focus {
+    border-color: var(--forest);
+    box-shadow: 0 0 0 3px rgb(88 116 90 / 35%);
+}
+
+.site-header {
+    background: var(--forest);
+    color: var(--surface);
+}
+
+.site-header__inner {
+    width: min(1120px, calc(100% - 32px));
+    margin: 0 auto;
+    padding: 14px 0;
+    display: flex;
+    align-items: center;
+    gap: 24px;
+}
+
+.site-header a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.site-header__brand {
+    font-size: 1.25rem;
+    font-weight: 700;
+}
+
+.site-header__nav,
+.site-header__account {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.site-header__account {
+    margin-left: auto;
+}
+
+.site-header__signup,
+.site-header button {
+    border: 1px solid var(--surface);
+    border-radius: 999px;
+    padding: 6px 12px;
+}
+
+.site-header form {
+    margin: 0;
+}
+
+.site-header button {
+    background: transparent;
+    color: inherit;
+    cursor: pointer;
+}
+
+.site-header__email {
+    overflow-wrap: anywhere;
+}
+
+@media (max-width: 768px) {
+    .site-container {
+        width: min(100% - 24px, 1120px);
+        padding: 20px 0;
+    }
+
+    .site-header__inner {
+        width: min(100% - 24px, 1120px);
+        flex-wrap: wrap;
+        gap: 10px 16px;
+    }
+
+    .site-header__nav {
+        order: 3;
+        width: 100%;
+        flex-wrap: wrap;
+    }
+
+    .site-header__account {
+        flex-wrap: wrap;
+        justify-content: flex-end;
+    }
+}
