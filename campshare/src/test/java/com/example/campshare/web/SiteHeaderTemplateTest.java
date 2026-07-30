@@ -23,6 +23,7 @@ class SiteHeaderTemplateTest {
 
         assertTrue(header.contains("th:fragment=\"siteHeader\""));
         assertTrue(header.contains("@{/gears}"));
+        assertTrue(header.contains("用品一覧"));
         assertTrue(header.contains("@{/login}"));
         assertTrue(header.contains("@{/signup}"));
         assertTrue(header.contains("@{/mypage/rentals}"));

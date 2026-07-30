@@ -5,7 +5,7 @@
     <div class="site-header__inner">
         <a class="site-header__brand" th:href="@{/gears}">CampShare</a>
         <nav class="site-header__nav" aria-label="メインナビゲーション">
-            <a th:href="@{/gears}">用具一覧</a>
+            <a th:href="@{/gears}">用品一覧</a>
             <a th:if="${navAuthenticated}" th:href="@{/mypage/rentals}">予約一覧</a>
             <a th:if="${navAdmin}" th:href="@{/admin/gears}">商品管理</a>
         </nav>
