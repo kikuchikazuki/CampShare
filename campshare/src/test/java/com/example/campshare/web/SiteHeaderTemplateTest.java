@@ -27,6 +27,7 @@ class SiteHeaderTemplateTest {
         assertTrue(header.contains("@{/login}"));
         assertTrue(header.contains("@{/signup}"));
         assertTrue(header.contains("@{/mypage/rentals}"));
+        assertTrue(header.contains("予約履歴"));
         assertTrue(header.contains("@{/admin/gears}"));
         assertTrue(header.contains("商品管理"));
         assertTrue(header.contains("@{/logout}"));
