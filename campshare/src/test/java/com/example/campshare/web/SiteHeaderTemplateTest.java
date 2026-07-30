@@ -47,6 +47,26 @@ class SiteHeaderTemplateTest {
     }
 
     @Test
+    void sharedHeaderTemplatesDoNotLinkToTheRemovedHomePage() throws IOException {
+        for (String template : SITE_TEMPLATES) {
+            String html = Files.readString(TEMPLATES.resolve(template));
+            assertFalse(
+                    html.contains("th:href=\"@{/}\""),
+                    template + " must not link to the removed home page");
+        }
+    }
+
+    @Test
+    void everySiteTemplateDeclaresAResponsiveViewport() throws IOException {
+        for (String template : SITE_TEMPLATES) {
+            String html = Files.readString(TEMPLATES.resolve(template));
+            assertTrue(
+                    html.contains("<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">"),
+                    template + " must declare the responsive viewport");
+        }
+    }
+
+    @Test
     void standaloneHomeTemplateIsRemoved() {
         assertFalse(Files.exists(TEMPLATES.resolve("home.html")));
     }
