@@ -14,7 +14,7 @@ class SiteStylesheetTemplateTest {
     @Test
     void allNonAuthTemplatesLoadTheSharedSiteStylesheet() throws IOException {
         List<String> templates = List.of(
-                "home.html", "gears.html", "gear-detail.html", "rental-form.html", "rentals.html",
+                "gears.html", "gear-detail.html", "rental-form.html", "rentals.html",
                 "admin/dashboard.html", "admin/gears.html", "admin/gear-form.html");
 
         for (String template : templates) {

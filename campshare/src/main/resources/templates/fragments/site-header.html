@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ja" xmlns:th="http://www.thymeleaf.org">
+<body>
+<header class="site-header" th:fragment="siteHeader">
+    <div class="site-header__inner">
+        <a class="site-header__brand" th:href="@{/gears}">CampShare</a>
+        <nav class="site-header__nav" aria-label="メインナビゲーション">
+            <a th:href="@{/gears}">用具一覧</a>
+            <a th:if="${navAuthenticated}" th:href="@{/mypage/rentals}">予約一覧</a>
+            <a th:if="${navAdmin}" th:href="@{/admin/gears}">管理画面</a>
+        </nav>
+        <div class="site-header__account">
+            <th:block th:unless="${navAuthenticated}">
+                <a th:href="@{/login}">ログイン</a>
+                <a class="site-header__signup" th:href="@{/signup}">新規登録</a>
+            </th:block>
+            <th:block th:if="${navAuthenticated}">
+                <span class="site-header__email" th:text="${navEmail}">user@example.com</span>
+                <form th:action="@{/logout}" method="post">
+                    <button type="submit">ログアウト</button>
+                </form>
+            </th:block>
+        </div>
+    </div>
+</header>
+</body>
+</html>
