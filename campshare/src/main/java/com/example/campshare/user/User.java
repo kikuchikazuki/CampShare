@@ -49,6 +49,10 @@ public class User {
         return id;
     }
 
+    public String getDisplayName() {
+        return displayName;
+    }
+
     public String getEmail() {
         return email;
     }
