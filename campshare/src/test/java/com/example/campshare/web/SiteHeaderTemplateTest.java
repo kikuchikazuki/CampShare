@@ -31,6 +31,7 @@ class SiteHeaderTemplateTest {
         assertTrue(header.contains("@{/admin/gears}"));
         assertTrue(header.contains("商品管理"));
         assertTrue(header.contains("@{/logout}"));
+        assertTrue(header.contains("${navDisplayName}"));
         assertTrue(header.contains("method=\"post\""));
         assertTrue(header.contains("th:if=\"${navAuthenticated}\""));
         assertTrue(header.contains("th:if=\"${navAdmin}\""));

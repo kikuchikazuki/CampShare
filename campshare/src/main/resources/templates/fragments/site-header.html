@@ -15,7 +15,7 @@
                 <a class="site-header__signup" th:href="@{/signup}">新規登録</a>
             </th:block>
             <th:block th:if="${navAuthenticated}">
-                <span class="site-header__email" th:text="${navEmail}">user@example.com</span>
+                <span class="site-header__email" th:text="${navDisplayName}">表示名</span>
                 <form th:action="@{/logout}" method="post">
                     <button type="submit">ログアウト</button>
                 </form>
