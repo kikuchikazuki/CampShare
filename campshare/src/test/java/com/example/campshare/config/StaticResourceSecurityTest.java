@@ -26,6 +26,13 @@ class StaticResourceSecurityTest {
                 .andExpect(content().contentTypeCompatibleWith(MediaType.valueOf("text/css")));
     }
 
+    @Test
+    void anonymousRequestCanLoadGearImage() throws Exception {
+        mockMvc.perform(get("/images/gear-led-lantern.png"))
+                .andExpect(status().isOk())
+                .andExpect(content().contentTypeCompatibleWith(MediaType.IMAGE_PNG));
+    }
+
     @Controller
     static class NoopController {
     }
