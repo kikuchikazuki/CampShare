@@ -60,6 +60,12 @@ body.site-page {
     font-weight: 700;
 }
 
+.site-header__brand img {
+    display: block;
+    width: 176px;
+    height: 48px;
+}
+
 .site-header__nav,
 .site-header__account {
     display: flex;

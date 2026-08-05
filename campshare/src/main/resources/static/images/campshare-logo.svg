@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 176 48" role="img" aria-labelledby="title desc">
+  <title id="title">CampShare</title>
+  <desc id="desc">円環の中に抽象化したテントを描いたCampShareのロゴ</desc>
+  <g fill="none" stroke="#dcefe2" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="24" cy="24" r="18" stroke-width="3"/>
+    <path d="M11 32 24 14l13 18M17 32l7-10 7 10M24 22v10" stroke-width="3"/>
+  </g>
+  <text x="52" y="30" fill="#fff" font-family="Arial, sans-serif" font-size="20" font-weight="700" letter-spacing=".3">CampShare</text>
+</svg>
