@@ -66,6 +66,20 @@ body.site-page {
     height: 48px;
 }
 
+main.site-container table {
+    border: 1px solid #c8d4cc;
+}
+
+main.site-container table th,
+main.site-container table td {
+    border: 1px solid #c8d4cc;
+}
+
+main.site-container table thead th {
+    background: #edf4ee;
+    color: #28543d;
+}
+
 .site-header__nav,
 .site-header__account {
     display: flex;
