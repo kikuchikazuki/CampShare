@@ -18,9 +18,9 @@ class GearMigrationTest {
     private JdbcTemplate jdbcTemplate;
 
     @Test
-    void gearsTableContainsSixDemoItems() {
+    void gearsTableContainsFiftyDemoItems() {
         Integer count = jdbcTemplate.queryForObject("SELECT COUNT(*) FROM gears", Integer.class);
 
-        assertThat(count).isEqualTo(6);
+        assertThat(count).isEqualTo(50);
     }
 }
