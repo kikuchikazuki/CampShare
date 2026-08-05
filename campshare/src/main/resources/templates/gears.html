@@ -23,6 +23,13 @@
     </form>
     <p class="text-muted" th:if="${#lists.isEmpty(gears)}">該当する用品がありません。</p>
     <h1 class="mt-3 mb-4">キャンプ用品一覧</h1>
+    <nav class="gear-pagination" aria-label="用品一覧ページ" th:if="${totalPages > 1}">
+        <a class="page-link page-link-prev" th:if="${pageNumber > 0}" th:href="@{/gears(page=${pageNumber - 1},q=${query})}" aria-label="前のページ">‹</a>
+        <span class="page-link page-link-prev disabled" th:unless="${pageNumber > 0}" aria-hidden="true">‹</span>
+        <a class="page-link" th:each="page : ${#numbers.sequence(0, totalPages - 1)}" th:classappend="${page == pageNumber ? ' current' : ''}" th:href="@{/gears(page=${page},q=${query})}" th:text="${page + 1}" th:attr="aria-current=${page == pageNumber ? 'page' : null}">1</a>
+        <a class="page-link page-link-next" th:if="${pageNumber < totalPages - 1}" th:href="@{/gears(page=${pageNumber + 1},q=${query})}" aria-label="次のページ">›</a>
+        <span class="page-link page-link-next disabled" th:unless="${pageNumber < totalPages - 1}" aria-hidden="true">›</span>
+    </nav>
     <div class="row g-4">
         <div class="col-md-6 col-lg-4" th:each="gear : ${gears}">
             <article class="card h-100 shadow-sm">
@@ -40,6 +47,13 @@
             </article>
         </div>
     </div>
+    <nav class="gear-pagination gear-pagination-bottom" aria-label="用品一覧ページ（下部）" th:if="${totalPages > 1}">
+        <a class="page-link page-link-prev" th:if="${pageNumber > 0}" th:href="@{/gears(page=${pageNumber - 1},q=${query})}" aria-label="前のページ">‹</a>
+        <span class="page-link page-link-prev disabled" th:unless="${pageNumber > 0}" aria-hidden="true">‹</span>
+        <a class="page-link" th:each="page : ${#numbers.sequence(0, totalPages - 1)}" th:classappend="${page == pageNumber ? ' current' : ''}" th:href="@{/gears(page=${page},q=${query})}" th:text="${page + 1}" th:attr="aria-current=${page == pageNumber ? 'page' : null}">1</a>
+        <a class="page-link page-link-next" th:if="${pageNumber < totalPages - 1}" th:href="@{/gears(page=${pageNumber + 1},q=${query})}" aria-label="次のページ">›</a>
+        <span class="page-link page-link-next disabled" th:unless="${pageNumber < totalPages - 1}" aria-hidden="true">›</span>
+    </nav>
 </main>
 </body>
 </html>

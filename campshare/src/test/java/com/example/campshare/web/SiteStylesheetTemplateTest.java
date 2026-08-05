@@ -22,4 +22,13 @@ class SiteStylesheetTemplateTest {
             assertTrue(html.contains("@{/css/site.css}"), template + " must load site.css");
         }
     }
+
+    @Test
+    void gearListHasPaginationAtTopAndBottomWithBoundedPages() throws IOException {
+        String html = Files.readString(Path.of("src/main/resources/templates/gears.html"));
+        assertTrue(html.contains("gear-pagination"));
+        assertTrue(html.contains("th:if=\"${totalPages > 1}\""));
+        assertTrue(html.contains("#numbers.sequence(0, totalPages - 1)"));
+        assertTrue(html.contains("gear-pagination-bottom"));
+    }
 }

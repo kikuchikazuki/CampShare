@@ -7,13 +7,15 @@ import org.springframework.data.repository.query.Param;
 
 import jakarta.persistence.LockModeType;
 import java.util.List;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import java.util.Optional;
 
 public interface GearRepository extends JpaRepository<Gear, Long> {
-    List<Gear> findAllByOrderByIdAsc();
+    Page<Gear> findAllByOrderByIdAsc(Pageable pageable);
 
     @Query("select g from Gear g where lower(concat(g.name, ' ', g.category, ' ', g.description)) like lower(concat('%', :query, '%')) order by g.id asc")
-    List<Gear> search(@Param("query") String query);
+    Page<Gear> search(@Param("query") String query, Pageable pageable);
 
     @Lock(LockModeType.PESSIMISTIC_WRITE)
     @Query("select g from Gear g where g.id = :id")
