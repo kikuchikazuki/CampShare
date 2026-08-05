@@ -5,6 +5,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.server.ResponseStatusException;
 import org.springframework.http.HttpStatus;
 
@@ -13,8 +14,12 @@ public class GearController {
     private final GearRepository gearRepository;
     public GearController(GearRepository gearRepository) { this.gearRepository = gearRepository; }
     @GetMapping("/gears")
-    public String gearList(Model model) {
-        model.addAttribute("gears", gearRepository.findAllByOrderByIdAsc());
+    public String gearList(@RequestParam(required = false) String q, Model model) {
+        String query = q == null ? "" : q.trim();
+        model.addAttribute("query", query);
+        model.addAttribute("gears", query.isEmpty()
+                ? gearRepository.findAllByOrderByIdAsc()
+                : gearRepository.search(query));
         return "gears";
     }
 

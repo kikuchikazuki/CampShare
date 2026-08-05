@@ -10,6 +10,7 @@ import org.springframework.test.web.servlet.MockMvc;
 import java.util.List;
 import java.util.Optional;
 import static org.mockito.Mockito.when;
+import static org.mockito.Mockito.verify;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
@@ -26,5 +27,14 @@ class GearControllerTest {
  @Test void gearDetailReturnsDetailView() throws Exception {
   when(gearRepository.findById(1L)).thenReturn(Optional.of(org.mockito.Mockito.mock(com.example.campshare.gear.Gear.class)));
   mockMvc.perform(get("/gears/1")).andExpect(status().isOk()).andExpect(view().name("gear-detail")).andExpect(model().attributeExists("gear"));
+ }
+
+ @Test void gearSearchUsesSearchTermAndPreservesQuery() throws Exception {
+  when(gearRepository.search("テント")).thenReturn(List.of());
+  mockMvc.perform(get("/gears").param("q", " テント "))
+          .andExpect(status().isOk())
+          .andExpect(view().name("gears"))
+          .andExpect(model().attribute("query", "テント"));
+  verify(gearRepository).search("テント");
  }
 }
