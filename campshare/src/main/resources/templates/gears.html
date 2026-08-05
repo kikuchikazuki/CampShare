@@ -10,6 +10,17 @@
 <body class="site-page">
 <div th:replace="~{fragments/site-header :: siteHeader}"></div>
 <main class="site-container">
+    <form class="row g-2 mb-4" method="get" th:action="@{/gears}">
+        <div class="col-sm-9 col-md-10">
+            <label class="visually-hidden" for="gear-search">用品を検索</label>
+            <input class="form-control" id="gear-search" name="q" type="search"
+                   placeholder="用品名・カテゴリ・説明で検索" th:value="${query}">
+        </div>
+        <div class="col-sm-3 col-md-2 d-grid">
+            <button class="btn btn-success" type="submit">検索</button>
+        </div>
+    </form>
+    <p class="text-muted" th:if="${#lists.isEmpty(gears)}">該当する用品がありません。</p>
     <h1 class="mt-3 mb-4">キャンプ用品一覧</h1>
     <div class="row g-4">
         <div class="col-md-6 col-lg-4" th:each="gear : ${gears}">
